@@ -25,7 +25,9 @@ public class Post extends BaseEntity{
         this.text = text;
         this.user = user;
     }
+Post(){
 
+}
     public String getTitle() {
         return title;
     }

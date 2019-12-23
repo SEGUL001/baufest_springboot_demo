@@ -15,12 +15,11 @@ public class User extends BaseEntity{
     @Column
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true,
             mappedBy = "user")
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,
+    @OneToMany(cascade = CascadeType.REMOVE,
             fetch = FetchType.LAZY,
             mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
