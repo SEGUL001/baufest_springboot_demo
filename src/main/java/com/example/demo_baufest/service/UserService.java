@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Service
 public class UserService {
@@ -55,9 +54,9 @@ public class UserService {
         }
     }
 
-    public ResponseEntity deleteUser(User user){
+    public ResponseEntity deleteUser(Long userId){
         try{
-            User oldUser = userRepository.findById(user.getId()).orElse(null);
+            User oldUser = userRepository.findById(userId).orElse(null);
             if (oldUser != null) {
                 oldUser.getComments().clear();
                 oldUser.getPosts().clear();

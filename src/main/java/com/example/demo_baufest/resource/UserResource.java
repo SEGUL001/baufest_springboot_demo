@@ -31,7 +31,7 @@ public class UserResource {
 
     @DeleteMapping
     @ResponseBody
-    public ResponseEntity deleteUser(@RequestBody @Valid User user){
+    public ResponseEntity deleteUser(@RequestParam ("id") Long user){
         return userService.deleteUser(user);
     }
 }
