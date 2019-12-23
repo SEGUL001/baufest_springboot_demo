@@ -8,6 +8,9 @@ public class Post extends BaseEntity{
     @Column
     private String title;
 
+    @Column
+    private String text;
+
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "post")
@@ -17,9 +20,9 @@ public class Post extends BaseEntity{
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Post(String title, List<Comment> comments, User user) {
+    public Post(String title, User user, String text) {
         this.title = title;
-        this.comments = comments;
+        this.text = text;
         this.user = user;
     }
 
@@ -45,5 +48,13 @@ public class Post extends BaseEntity{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

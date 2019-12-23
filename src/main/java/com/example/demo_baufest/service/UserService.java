@@ -16,7 +16,7 @@ public class UserService {
             if(validateUser(user)){
                 return  userRepository.save(user);
             } else {
-                throw new IllegalArgumentException("invalid User");
+                throw new IllegalArgumentException("Username already exist.");
             }
         }
         catch (IllegalArgumentException e){
